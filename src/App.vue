@@ -1,32 +1,34 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-  </nav>
+    <a-layout>
+    <a-layout-sider class="layoutSider"  ref="layoutSider">
+      <!-- 左侧导航 -->
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header>Header</a-layout-header>
+      <a-layout-content>Content</a-layout-content>
+      <a-layout-footer>Footer</a-layout-footer>
+    </a-layout>
+  </a-layout>
   <router-view/>
 </template>
-
-<style scoped lang='less'>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-  a {
-    font-size: 18px;
+<script>
+export default {
+  data () {
+    return {
+      siderHeight: ''
+    }
+  },
+  created () {
+    this.siderHeight = document.body.clientHeight
+    console.log(this.siderHeight)
+  },
+  mounted () {
+    console.log(this.$refs.layoutSider)
   }
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+</script>
+<style scoped lang='less'>
+.layoutSider{
+  // height: 100%;
 }
 </style>
